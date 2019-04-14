@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label th:if="${session.user} != null">[[${session.user}]]</label>
+<hr>
+222222222<br>
+<div th:text="${hello}">
+</div>
+<label id="msg" th:text="#{test.msg}"></label>
+<br>
+<a href="" th:href="@{/qsmy1(lange='zh_CN')}">中文</a>
+<a href="" th:href="@{/qsmy1(lange='en_US')}">英文</a>
+</body>
+</html>
