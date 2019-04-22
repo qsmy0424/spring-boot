@@ -6,8 +6,8 @@ spring:
       username: root
       password: qsmy0424
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://192.168.2.192:13306/qsmy
-#      url: jdbc:mysql://172.16.5.70:13306/qsmy
+#      url: jdbc:mysql://192.168.2.192:13306/qsmy
+      url: jdbc:mysql://172.16.5.70:13306/qsmy
       initialSize: 5
       minIdle: 5
       maxActive: 20
@@ -28,8 +28,8 @@ spring:
       username: root
       password: qsmy0424
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://192.168.2.192:13306/wwhm
-#      url: jdbc:mysql://172.16.5.70:13306/wwhm
+#      url: jdbc:mysql://192.168.2.192:13306/wwhm
+      url: jdbc:mysql://172.16.5.70:13306/wwhm
       initialSize: 5
       minIdle: 5
       maxActive: 20
@@ -53,12 +53,14 @@ spring:
   jpa:
     hibernate:
 #      更新或创建数据表结构
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
   mvc:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+    favicon:
+      enabled: true
 
 mybatis:
 #  指定全局配置文件位置

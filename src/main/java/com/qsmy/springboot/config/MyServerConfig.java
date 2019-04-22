@@ -16,13 +16,15 @@ public class MyServerConfig {
 
     @Bean
     public ServletRegistrationBean<MyServlet> servletRegistrationBean() {
-        ServletRegistrationBean<MyServlet> servletRegistrationBean = new ServletRegistrationBean(new MyServlet(), "/myServlet");
+        ServletRegistrationBean<MyServlet> servletRegistrationBean = new ServletRegistrationBean<>();
+        servletRegistrationBean.setServlet(new MyServlet());
+        servletRegistrationBean.addUrlMappings("/myServlet");
         return servletRegistrationBean;
     }
 
     @Bean
-    public FilterRegistrationBean filterRegistrationBean() {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+    public FilterRegistrationBean<MyFilter> filterRegistrationBean() {
+        FilterRegistrationBean<MyFilter> filterRegistrationBean = new FilterRegistrationBean<>();
         filterRegistrationBean.setFilter(new MyFilter());
         filterRegistrationBean.setUrlPatterns(Arrays.asList("/qsmy", "/myServlet"));
         // order数字越小，优先级越高
@@ -31,8 +33,8 @@ public class MyServerConfig {
     }
 
     @Bean
-    public ServletListenerRegistrationBean listenerRegistrationBean() {
-        ServletListenerRegistrationBean listenerRegistrationBean = new ServletListenerRegistrationBean();
+    public ServletListenerRegistrationBean<MyListener> listenerRegistrationBean() {
+        ServletListenerRegistrationBean<MyListener> listenerRegistrationBean = new ServletListenerRegistrationBean<>();
         listenerRegistrationBean.setListener(new MyListener());
         return listenerRegistrationBean;
     }

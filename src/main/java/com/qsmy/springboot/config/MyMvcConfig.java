@@ -9,6 +9,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.net.InetAddress;
+
 /**
  * @author qsmy
  * 使用WebMvcConfigurer接口来扩展SpringMVC的功能
@@ -37,7 +39,6 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
     @Bean
     public WebServerFactoryCustomizer webServerFactoryCustomizer() {
-        WebServerFactoryCustomizer<ConfigurableWebServerFactory> customizer = factory -> factory.setPort(9000);
-        return customizer;
+        return (WebServerFactoryCustomizer<ConfigurableWebServerFactory>) factory -> factory.setPort(9000);
     }
 }
