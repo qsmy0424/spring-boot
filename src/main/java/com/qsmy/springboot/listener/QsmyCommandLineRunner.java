@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * @author qsmy
  * @desctiption TODO
- * @Date 2019-03-27 20:42
+ * @date 2019-03-27 20:42
  */
 @Component
 public class QsmyCommandLineRunner implements CommandLineRunner {

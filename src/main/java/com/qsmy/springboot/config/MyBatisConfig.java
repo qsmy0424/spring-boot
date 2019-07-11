@@ -17,6 +17,7 @@ public class MyBatisConfig {
      */
     @Bean
     public ConfigurationCustomizer configurationCustomizer() {
+        System.out.println("测试-----");
         return (configuration) -> configuration.setMapUnderscoreToCamelCase(true);
     }
 }

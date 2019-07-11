@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author qsmy
  * @desctiption TODO
- * @Date 2019-03-27 20:40
+ * @date 2019-03-27 20:40
  */
 @Component
 public class QsmyApplicationRunner implements ApplicationRunner {

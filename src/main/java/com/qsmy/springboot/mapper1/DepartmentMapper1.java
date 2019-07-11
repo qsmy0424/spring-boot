@@ -3,6 +3,9 @@ package com.qsmy.springboot.mapper1;
 import com.qsmy.springboot.bean.Department;
 import org.apache.ibatis.annotations.*;
 
+/**
+ * @author qsmy
+ */
 public interface DepartmentMapper1 {
 
     @Select("select * from department where id = #{id}")

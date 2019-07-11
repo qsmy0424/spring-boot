@@ -13,6 +13,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author qsmy
+ */
 @Configuration
 public class DruidConfig {
 

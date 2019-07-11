@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 /**
  * @author qsmy
  * @desctiption TODO
- * @Date 2019-04-11 18:52
+ * @date 2019-04-11 18:52
  */
 @Configuration
 @MapperScan(basePackages = "com.qsmy.springboot.mapper1", sqlSessionTemplateRef = "test1SqlSessionTemplate")

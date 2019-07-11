@@ -1,17 +1,17 @@
 package com.qsmy.springboot.bean;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
 
 import javax.persistence.*;
 
 /**
  * @author qsmy
- * @desctiption TODO
- * @Date 2019-03-26 17:05
+ * @date 2019-03-26 17:05
  */
+@Data
 // 使用JPA注解配置映射关系
 @Entity     // 告诉JPA这是一个实体类（和数据表映射的类）
-@Table(name = "tbl_user")   // @Table来指定和哪个数据表对应，如果省略默认表名就是user；
+@Table   // @Table来指定和哪个数据表对应，如果省略默认表名就是user；
 // @JsonIgnoreProperties(value = {"hibernateLazyInitializer"})
 public class User {
 
@@ -20,46 +20,26 @@ public class User {
     /**
      * strategy：表示主键生成策略，generator表示主键生成器的名称。
      */
-    private Integer id;
+    private Long id;
 
-    @Column(name = "last_name", length = 50, nullable = true)    // 这是和数据表对应的一个列
-    private String lastName;
+    @Column(name = "username", length = 50, nullable = true)    // 这是和数据表对应的一个列
+    private String username;
 
-    @Column     // 省略默认列名就是属性名
-    private String email;
+    private String password;
 
-    @Transient  // 表示该属性并非一个到数据库表的字段的映射，ORM框架将忽略改属性。
-    private String test;
+    private String roleName;
 
-    public Integer getId() {
-        return id;
-    }
+    private boolean locked;
 
-    public void setId(Integer id) {
+    // 表示该属性并非一个到数据库表的字段的映射，ORM框架将忽略改属性。
+    // @Transient
+    // private String test;
+
+    public User(Long id, String username, String password, String roleName, boolean locked) {
         this.id = id;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTest() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test = test;
+        this.username = username;
+        this.password = password;
+        this.roleName = roleName;
+        this.locked = locked;
     }
 }

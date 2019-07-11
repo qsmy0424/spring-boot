@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
 
+/**
+ * @author qsmy
+ */
 public class MyLocaleResolver implements LocaleResolver {
 
     @Override

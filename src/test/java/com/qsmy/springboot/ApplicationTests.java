@@ -1,12 +1,14 @@
 package com.qsmy.springboot;
 
 import com.qsmy.springboot.bean.People;
+import com.qsmy.springboot.config.MyBatisConfig;
 import com.qsmy.springboot.mapper1.DepartmentMapper1;
 import com.qsmy.springboot.mapper1.EmployeeMapper1;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.StringUtils;
@@ -39,7 +41,8 @@ public class ApplicationTests {
 
     @Test
     public void test() {
-        String[] strings = StringUtils.commaDelimitedListToStringArray(StringUtils.trimAllWhitespace("qsmy.wwhm"));
+        String[] strings = StringUtils.commaDelimitedListToStringArray(
+                StringUtils.trimAllWhitespace("qsmy.wwhm"));
         System.out.println(strings.length);
         for (String string : strings) {
             System.out.println("result    "+ string);
@@ -62,6 +65,16 @@ public class ApplicationTests {
     @Test
     public void test2() {
         System.out.println(departmentMapper1);
+    }
+
+    @Test
+    public void testAnnotation() {
+        // AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyBatisConfig.class);
+        // 因为我们加载的@Configuration是基于注解形式的，所以需要创建AnnotationConfigApplicationContext
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        // 注册MyBatisConfig类并刷新容器
+        context.register(MyBatisConfig.class);
+        context.refresh();
     }
 
 

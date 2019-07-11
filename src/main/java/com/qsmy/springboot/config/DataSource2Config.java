@@ -15,8 +15,7 @@ import javax.sql.DataSource;
 
 /**
  * @author qsmy
- * @desctiption TODO
- * @Date 2019-04-11 18:52
+ * @date 2019-04-11 18:52
  */
 @Configuration
 @MapperScan(basePackages = "com.qsmy.springboot.mapper2", sqlSessionTemplateRef = "test2SqlSessionTemplate")
@@ -29,7 +28,8 @@ public class DataSource2Config {
     }
 
     @Bean
-    public SqlSessionFactory test2SqlSessionFactory(@Qualifier("test2DataSource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory test2SqlSessionFactory(@Qualifier("test2DataSource") DataSource dataSource)
+            throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
         return bean.getObject();

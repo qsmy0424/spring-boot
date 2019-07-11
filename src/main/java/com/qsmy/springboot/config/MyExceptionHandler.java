@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author qsmy
+ */
 @ControllerAdvice
 public class MyExceptionHandler {
 

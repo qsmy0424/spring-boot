@@ -6,7 +6,7 @@
    <!--    public Employee getEmpById(Integer id);
 
     public void insertEmp(Employee employee);-->
-    <select id="getEmpById" resultType="com.qsmy.springboot.bean.Employee">
+    <select id="getEmpById" parameterType="Integer" resultType="com.qsmy.springboot.bean.Employee">
         SELECT * FROM employee WHERE id=#{id}
     </select>
 

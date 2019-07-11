@@ -8,7 +8,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 /**
  * @author qsmy
  * @desctiption TODO
- * @Date 2019-03-27 20:36
+ * @date 2019-03-27 20:36
  */
 public class QsmySpringApplicationRunListener implements SpringApplicationRunListener {
     public QsmySpringApplicationRunListener(SpringApplication application, String[] args) {

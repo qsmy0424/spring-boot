@@ -1,0 +1,85 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    qsmy1:
+      username: root
+      password: qsmy0424
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #      url: jdbc:mysql://192.168.2.192:13306/qsmy
+      url: jdbc:mysql://localhost:13306/qsmy
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: [stat,wall,log4j]
+      maxPoolPreparedStatementPerConnectionSize: 20
+      useGlobalDataSourceStat: true
+      connectProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    qsmy2:
+      username: root
+      password: qsmy0424
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #      url: jdbc:mysql://192.168.2.192:13306/wwhm
+      url: jdbc:mysql://localhost:13306/wwhm
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: [stat,wall,log4j]
+      maxPoolPreparedStatementPerConnectionSize: 20
+      useGlobalDataSourceStat: true
+      connectProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    schema:
+      - classpath:sql/department.sql
+      - classpath:sql/employee.sql
+    initialization-mode: embedded
+  jpa:
+    hibernate:
+      #      更新或创建数据表结构
+      ddl-auto: update
+    show-sql: true
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    favicon:
+      enabled: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+mybatis:
+  #  指定全局配置文件位置
+  config-location: classpath:mybatis/mybatis-config.xml
+  #  指定sql映射文件位置
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  #  配置项目中实体类包路径
+  type-aliases-package: com.qsmy.springboot.bean
+  configuration:
+    #  驼峰命名规范 如：数据库字段是order_id，那么实体字段就要写成orderId
+    map-underscore-to-camel-case: true
+qsmy:
+  hello:
+    prefix: qsmy_prefix
+    suffix: qsmy_suffix
+server:
+  port: 12350
+#  servlet:
+#    context-path: /wwhm

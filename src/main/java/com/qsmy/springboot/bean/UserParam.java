@@ -2,8 +2,7 @@ package com.qsmy.springboot.bean;
 
 /**
  * @author qsmy
- * @desctiption TODO
- * @Date 2019-04-11 16:20
+ * @date 2019-04-11 16:20
  */
 public class UserParam extends PageParam {
     private String userName;

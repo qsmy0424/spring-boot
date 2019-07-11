@@ -6,6 +6,9 @@ import org.springframework.web.context.request.WebRequest;
 
 import java.util.Map;
 
+/**
+ * @author qsmy
+ */
 @Component
 public class MyErrorAttributes extends DefaultErrorAttributes {
     @Override

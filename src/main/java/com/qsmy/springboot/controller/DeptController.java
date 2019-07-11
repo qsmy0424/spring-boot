@@ -5,30 +5,52 @@ import com.qsmy.springboot.bean.Employee;
 import com.qsmy.springboot.mapper1.DepartmentMapper1;
 import com.qsmy.springboot.mapper1.EmployeeMapper1;
 import com.qsmy.springboot.mapper2.DepartmentMapper2;
+import com.qsmy.springboot.mapper2.EmployeeMapper2;
+import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author qsmy
+ */
 @RestController
 public class DeptController {
 
-    @Autowired
     private DepartmentMapper1 departmentMapper1;
-    @Autowired
     private DepartmentMapper2 departmentMapper2;
-    @Autowired
     private EmployeeMapper1 employeeMapper1;
+    private EmployeeMapper2 employeeMapper2;
+
+    @Autowired
+    public void setEmployeeMapper2(EmployeeMapper2 employeeMapper2) {
+        this.employeeMapper2 = employeeMapper2;
+    }
+
+    @Autowired
+    public void setDepartmentMapper1(DepartmentMapper1 departmentMapper1) {
+        this.departmentMapper1 = departmentMapper1;
+    }
+
+    @Autowired
+    public void setDepartmentMapper2(DepartmentMapper2 departmentMapper2) {
+        this.departmentMapper2 = departmentMapper2;
+    }
+
+    @Autowired
+    public void setEmployeeMapper1(EmployeeMapper1 employeeMapper1) {
+        this.employeeMapper1 = employeeMapper1;
+    }
 
     @GetMapping("/dept/{id}")
     public Department getDepartment(@PathVariable("id") Integer id) {
-        Department department = departmentMapper1.getDeptById(id);
-        return department;
+        return departmentMapper1.getDeptById(id);
     }
+
     @GetMapping("/dept2/{id}")
     public Department getDepartment2(@PathVariable("id") Integer id) {
-        Department department = departmentMapper2.getDeptById(id);
-        return department;
+        return departmentMapper2.getDeptById(id);
     }
 
     @GetMapping("/dept")
@@ -39,7 +61,11 @@ public class DeptController {
 
     @GetMapping("/emp/{id}")
     public Employee getEmp(@PathVariable("id") Integer id) {
-        Employee emp = employeeMapper1.getEmpById(id);
-        return emp;
+        return employeeMapper1.getEmpById(id);
+    }
+
+    @GetMapping("/emp2/{id}")
+    public Employee getEmp2(@PathVariable("id") Integer id) {
+        return employeeMapper2.getEmpById(id);
     }
 }

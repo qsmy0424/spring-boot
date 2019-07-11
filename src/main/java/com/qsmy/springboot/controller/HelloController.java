@@ -1,7 +1,7 @@
 package com.qsmy.springboot.controller;
 
 import com.qsmy.springboot.exception.MyException;
-import com.qsmy.starter.service.HelloService;
+// import com.qsmy.starter.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -13,14 +13,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author qsmy
+ */
+
 @Controller
 // @RestController
 public class HelloController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    @Autowired
-    private HelloService helloService;
+    // @Autowired
+    // private HelloService helloService;
 
     @ResponseBody
     @RequestMapping("/qsmy")
@@ -53,12 +57,12 @@ public class HelloController {
         return maps;
     }
 
-    @ResponseBody
-    @RequestMapping("/hello")
-    public String getHello(String name) {
-        String qsmy = helloService.sayHello("qsmy111");
-        return qsmy;
-    }
+    // @ResponseBody
+    // @RequestMapping("/hello")
+    // public String getHello(String name) {
+    //     String qsmy = helloService.sayHello("qsmy111");
+    //     return qsmy;
+    // }
 
     @RequestMapping("/qsmy_jsp")
     public String jsp(Map<String, Object> map) {

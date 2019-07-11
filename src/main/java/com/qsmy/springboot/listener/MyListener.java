@@ -3,6 +3,9 @@ package com.qsmy.springboot.listener;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+/**
+ * @author qsmy
+ */
 public class MyListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {

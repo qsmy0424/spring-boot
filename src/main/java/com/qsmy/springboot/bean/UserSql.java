@@ -6,7 +6,7 @@ import org.apache.ibatis.jdbc.SQL;
 /**
  * @author qsmy
  * @desctiption TODO
- * @Date 2019-04-11 16:14
+ * @date 2019-04-11 16:14
  */
 public class UserSql {
     public String getList(UserParam userParam) {

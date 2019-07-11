@@ -1,15 +1,11 @@
 package com.qsmy.springboot.config;
 
-import org.springframework.boot.web.server.ConfigurableWebServerFactory;
-import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.net.InetAddress;
 
 /**
  * @author qsmy
@@ -37,8 +33,8 @@ public class MyMvcConfig implements WebMvcConfigurer {
         return new MyLocaleResolver();
     }
 
-    @Bean
-    public WebServerFactoryCustomizer webServerFactoryCustomizer() {
-        return (WebServerFactoryCustomizer<ConfigurableWebServerFactory>) factory -> factory.setPort(9000);
-    }
+    // @Bean
+    // public WebServerFactoryCustomizer webServerFactoryCustomizer() {
+    //     return (WebServerFactoryCustomizer<ConfigurableWebServerFactory>) factory -> factory.setPort(9000);
+    // }
 }
