@@ -10,7 +10,6 @@ import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreato
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -96,7 +95,6 @@ public class ShiroConfiguration {
 
     /**
      * 加载shiroFilter权限控制规则（从数据库读取然后配置）
-     * @param shiroFilterFactoryBean
      */
     private void loadShiroFilterChain(ShiroFilterFactoryBean shiroFilterFactoryBean) {
         // 下列规则配置最好配置到配置文件中

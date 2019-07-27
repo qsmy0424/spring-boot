@@ -1,12 +1,11 @@
 package com.qsmy.springboot.controller;
 
 import com.qsmy.springboot.bean.Department;
-import com.qsmy.springboot.bean.Employee;
+// import com.qsmy.springboot.bean.Employee;
 import com.qsmy.springboot.mapper1.DepartmentMapper1;
-import com.qsmy.springboot.mapper1.EmployeeMapper1;
+// import com.qsmy.springboot.mapper1.EmployeeMapper1;
 import com.qsmy.springboot.mapper2.DepartmentMapper2;
-import com.qsmy.springboot.mapper2.EmployeeMapper2;
-import lombok.var;
+// import com.qsmy.springboot.mapper2.EmployeeMapper2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,13 +19,13 @@ public class DeptController {
 
     private DepartmentMapper1 departmentMapper1;
     private DepartmentMapper2 departmentMapper2;
-    private EmployeeMapper1 employeeMapper1;
-    private EmployeeMapper2 employeeMapper2;
-
-    @Autowired
-    public void setEmployeeMapper2(EmployeeMapper2 employeeMapper2) {
-        this.employeeMapper2 = employeeMapper2;
-    }
+    // private EmployeeMapper1 employeeMapper1;
+    // private EmployeeMapper2 employeeMapper2;
+    //
+    // @Autowired
+    // public void setEmployeeMapper2(EmployeeMapper2 employeeMapper2) {
+    //     this.employeeMapper2 = employeeMapper2;
+    // }
 
     @Autowired
     public void setDepartmentMapper1(DepartmentMapper1 departmentMapper1) {
@@ -38,10 +37,10 @@ public class DeptController {
         this.departmentMapper2 = departmentMapper2;
     }
 
-    @Autowired
-    public void setEmployeeMapper1(EmployeeMapper1 employeeMapper1) {
-        this.employeeMapper1 = employeeMapper1;
-    }
+    // @Autowired
+    // public void setEmployeeMapper1(EmployeeMapper1 employeeMapper1) {
+    //     this.employeeMapper1 = employeeMapper1;
+    // }
 
     @GetMapping("/dept/{id}")
     public Department getDepartment(@PathVariable("id") Integer id) {
@@ -59,13 +58,13 @@ public class DeptController {
         return department;
     }
 
-    @GetMapping("/emp/{id}")
-    public Employee getEmp(@PathVariable("id") Integer id) {
-        return employeeMapper1.getEmpById(id);
-    }
-
-    @GetMapping("/emp2/{id}")
-    public Employee getEmp2(@PathVariable("id") Integer id) {
-        return employeeMapper2.getEmpById(id);
-    }
+    // @GetMapping("/emp/{id}")
+    // public Employee getEmp(@PathVariable("id") Integer id) {
+    //     return employeeMapper1.getEmpById(id);
+    // }
+    //
+    // @GetMapping("/emp2/{id}")
+    // public Employee getEmp2(@PathVariable("id") Integer id) {
+    //     return employeeMapper2.getEmpById(id);
+    // }
 }

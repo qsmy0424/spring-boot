@@ -7,7 +7,6 @@ import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
  * @author qsmy
- * @desctiption TODO
  * @date 2019-03-27 20:36
  */
 public class QsmySpringApplicationRunListener implements SpringApplicationRunListener {

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--导入属性配置 -->
+    <properties resource="mybatis/generator.properties"/>
+
+    <classPathEntry
+            location="/Users/qsmy/.m2/repository/mysql/mysql-connector-java/5.0.8/mysql-connector-java-5.0.8.jar"/>
+    <context id="context1">
+        <!-- 注释 -->
+        <commentGenerator>
+            <!-- 是否取消注释 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 是否生成注释代时间戳 -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${driver}"
+                        connectionURL="${url}"
+                        userId="${username}"
+                        password="${password}"/>
+
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="${modelPackage}"
+                            targetProject="${modelProject}">
+            <!--在targetPackage的基础上，根据数据库的schema在生成一层package，最终生成的类放在这个package下，默认为false-->
+            <property name="enableSubPackages" value="false"/>
+            <!--设置是否在getter方法中，对String类型字段调用trim()方法-->
+            <property name="trimStrings" value="true"/>
+            <!--for Mybatis3/Mybatis3Simple 自动为每一个生成的类创建一个构造方法，构造方法中包含所有的field；而不是使用setter-->
+            <property name="constructorBased" value="false"/>
+            <!--for Mybatis3/Mybatis3Simple 是否创建一个不可变的类，如果为true，那么MBG会创建一个没有setter方法的类-->
+            <property name="immutable" value="false"/>
+        </javaModelGenerator>
+
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="${sqlPackage}" targetProject="${sqlProject}"/>
+
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator targetPackage="${mapperPackage}"
+                             targetProject="${mapperProject}" type="XMLMAPPER"/>
+
+        <!-- 如果需要通配所有表 直接用sql的通配符%即可 -->
+        <table schema="" tableName="${table}" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

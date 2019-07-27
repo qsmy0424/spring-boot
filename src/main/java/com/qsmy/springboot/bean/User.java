@@ -35,6 +35,9 @@ public class User {
     // @Transient
     // private String test;
 
+    public User() {
+    }
+
     public User(Long id, String username, String password, String roleName, boolean locked) {
         this.id = id;
         this.username = username;

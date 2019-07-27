@@ -26,7 +26,7 @@ public class DruidConfig {
     }
 
     /**
-     * 配置Durid监控，配置一个管理后台的Servlet
+     * 配置Druid监控，配置一个管理后台的Servlet
      * @return
      */
     @Bean

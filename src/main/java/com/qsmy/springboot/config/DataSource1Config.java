@@ -16,7 +16,6 @@ import javax.sql.DataSource;
 
 /**
  * @author qsmy
- * @desctiption TODO
  * @date 2019-04-11 18:52
  */
 @Configuration

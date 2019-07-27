@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.*;
 /**
  * @author qsmy
  */
+@Mapper
 public interface DepartmentMapper1 {
 
     @Select("select * from department where id = #{id}")

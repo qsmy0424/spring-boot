@@ -64,12 +64,30 @@ spring:
       enabled: true
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    host: localhost
+    password: qsmy0424
+    database: 0
+    port: 6379
+    jedis:
+      pool:
+        # 连接池中的最大空闲数
+        max-idle: 10
+        # 连接池中的最小空闲数
+        min-idle: 5
+        # 连接池最大连接数（使用负值没有限制）
+        max-active: 200
+        # 连接池最大阻塞等待时间（使用负值没有限制）
+        max-wait: 1000
+#  cache:
+#    ehcache:
+#      config: ehcache.xml
 
 mybatis:
   #  指定全局配置文件位置
-  config-location: classpath:mybatis/mybatis-config.xml
+  #  config-location: classpath:mybatis/mybatis-config.xml
   #  指定sql映射文件位置
-  mapper-locations: classpath:mybatis/mapper/*.xml
+  mapper-locations: classpath:mybatis/**/*.xml
   #  配置项目中实体类包路径
   type-aliases-package: com.qsmy.springboot.bean
   configuration:
@@ -80,6 +98,6 @@ qsmy:
     prefix: qsmy_prefix
     suffix: qsmy_suffix
 server:
-  port: 12350
+  port: 1235
 #  servlet:
 #    context-path: /wwhm

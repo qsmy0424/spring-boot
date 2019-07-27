@@ -1,9 +1,10 @@
 package com.qsmy.springboot;
 
+import com.qsmy.springboot.bean.Employee;
 import com.qsmy.springboot.bean.People;
 import com.qsmy.springboot.config.MyBatisConfig;
 import com.qsmy.springboot.mapper1.DepartmentMapper1;
-import com.qsmy.springboot.mapper1.EmployeeMapper1;
+import com.qsmy.springboot.mapper1.EmployeeMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ApplicationTests {
 
     @Autowired
@@ -27,11 +28,12 @@ public class ApplicationTests {
     @Autowired
     JdbcTemplate jdbcTemplate;
     @Autowired
-    EmployeeMapper1 employeeMapper1;
+    private EmployeeMapper employeeMapper;
     @Autowired
     DepartmentMapper1 departmentMapper1;
     @Autowired
     DataSource dataSource;
+
     @Test
     public void contextLoads() {
         System.out.println(people);
@@ -51,7 +53,7 @@ public class ApplicationTests {
 
     @Test
     public void test1() {
-        List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from qsmy");
+        List<Map<String, Object>> list = jdbcTemplate.queryForList("select * from user");
         System.out.println(list.get(0));
         System.out.println(dataSource);
         System.out.println(dataSource.getClass());
@@ -63,11 +65,6 @@ public class ApplicationTests {
     }
 
     @Test
-    public void test2() {
-        System.out.println(departmentMapper1);
-    }
-
-    @Test
     public void testAnnotation() {
         // AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyBatisConfig.class);
         // 因为我们加载的@Configuration是基于注解形式的，所以需要创建AnnotationConfigApplicationContext
@@ -76,7 +73,6 @@ public class ApplicationTests {
         context.register(MyBatisConfig.class);
         context.refresh();
     }
-
 
 }
 
