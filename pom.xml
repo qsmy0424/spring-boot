@@ -25,7 +25,7 @@
         <json-smart.version>2.2.1</json-smart.version>
         <commons-io.version>2.6</commons-io.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
-        <shiro-version>1.4.0</shiro-version>
+        <shiro-version>1.10.0</shiro-version>
         <httpclient.version>4.5.6</httpclient.version>
     </properties>
 
